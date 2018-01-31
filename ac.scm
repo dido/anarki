@@ -1490,5 +1490,9 @@
 			   (n (string->number s radix)))
 		      (if n n 'nil))))
 
+(xdef seek (lambda (port offset) (file-position port offset)))
+
+(xdef tell (lambda (port) (file-position port)))
+
 )
 

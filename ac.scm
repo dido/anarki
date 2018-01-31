@@ -1480,6 +1480,15 @@
                                     (#t
                                      (cons (car cs) (unesc (cdr cs))))))))
                   (unesc (string->list s)))))
-  
+
+; Functions required for bootstrapping
+
+(xdef substring substring)
+
+(xdef string->num (lambda (s . args)
+		    (let* ((radix (if (null? args) 10 (car args)))
+			   (n (string->number s radix)))
+		      (if n n 'nil))))
+
 )
 
